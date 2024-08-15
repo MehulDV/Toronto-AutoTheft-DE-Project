@@ -1,4 +1,4 @@
-# Toronto Auto Theft DE Project
+# Toronto Auto Theft DE Project 🚗
 
 This repository contains open data on auto thefts in Toronto, provided by the Toronto Police Service. The dataset includes detailed records of auto theft incidents, including date, location, and other key information. The data is intended to improve public awareness and assist researchers, policymakers, and community members in understanding and preventing auto theft.
 
@@ -7,6 +7,7 @@ This repository contains open data on auto thefts in Toronto, provided by the To
 - [Introduction](#introduction)
 - [Dataset Details](#dataset-details)
 - [Usage](#usage)
+- [Code Example](#code-example)
 - [Installation](#installation)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -33,6 +34,29 @@ This dataset can be used for:
 - Building predictive models to anticipate areas with high risks of auto theft.
 - Community awareness initiatives and public safety campaigns.
 
+## Code Examples
+Here are some examples of how to use the Spark code with the Auto Theft Open Data:
+
+### 1. Loading and Saving the Dataset
+
+The following code demonstrates how to load the dataset from a CSV file, display it, and save it as a Parquet file:
+
+```scala
+val df = spark.read.format("csv")
+  .option("header", "true")
+  .option("inferschema", "true")
+  .load("dbfs:/FileStore/tables/Auto_Theft_Open_Data.csv")
+df.show()
+
+df.write.mode("overwrite").parquet("dbfs:/FileStore/tables/output/Auto_Theft_Open_Data.parquet")
+```
+
+### 2. Auto Thefts Trend by Year
+This query counts the total number of auto thefts reported in the dataset:
+```
+val total_AutoTheft_Count = spark.sql("SELECT count(*) FROM Auto_Theft_Open_Data")
+total_AutoTheft_Count.show()
+```
 ## Installation
 
 To access the data:
