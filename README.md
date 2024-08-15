@@ -2,6 +2,8 @@
 
 This repository contains open data on auto thefts in Toronto, provided by the Toronto Police Service. The dataset includes detailed records of auto theft incidents, including date, location, and other key information. The data is intended to improve public awareness and assist researchers, policymakers, and community members in understanding and preventing auto theft.
 
+![me](https://github.com/MehulDV/Toronto-AutoTheft-Project/blob/main/src/main/scala/org/toronto/autotheft/blob/Auto_Theft.gif)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
