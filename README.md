@@ -53,13 +53,20 @@ df.show()
 df.write.mode("overwrite").parquet("dbfs:/FileStore/tables/output/Auto_Theft_Open_Data.parquet")
 ```
 
-### 2. Auto Thefts Trend by Year
+### 2. How many auto thefts were reported each year?
 This query counts the total number of auto thefts reported in the dataset:
 
 ```scala
-val total_AutoTheft_Count = spark.sql("SELECT count(*) FROM Auto_Theft_Open_Data")
-total_AutoTheft_Count.show()
+val yearByTheftDF = autoTheftDataDF
+.filter($"REPORT_YEAR" < 2024)
+.groupBy("REPORT_YEAR")
+.agg(count("*").as("Stolen_Vehicles"))
+.orderBy($"Stolen_Vehicles".desc)
+display(yearByTheftDF)
 ```
+
+<a href="url"><img src="https://github.com/user-attachments/assets/3246cea0-25e5-41ad-a159-d177d8546f31" height=40% width=40% ></a>
+
 
 ## Installation
 
