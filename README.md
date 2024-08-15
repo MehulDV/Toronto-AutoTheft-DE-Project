@@ -7,7 +7,7 @@ This repository contains open data on auto thefts in Toronto, provided by the To
 - [Introduction](#introduction)
 - [Dataset Details](#dataset-details)
 - [Usage](#usage)
-- [Code Example](#code-example)
+- [Code Examples](#code-examples)
 - [Installation](#installation)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -53,10 +53,12 @@ df.write.mode("overwrite").parquet("dbfs:/FileStore/tables/output/Auto_Theft_Ope
 
 ### 2. Auto Thefts Trend by Year
 This query counts the total number of auto thefts reported in the dataset:
-```
+
+```scala
 val total_AutoTheft_Count = spark.sql("SELECT count(*) FROM Auto_Theft_Open_Data")
 total_AutoTheft_Count.show()
 ```
+
 ## Installation
 
 To access the data:
